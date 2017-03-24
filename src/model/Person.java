@@ -37,9 +37,7 @@ public class Person {
 	}
 	@Override
 	public String toString() {
-		return "Person [fNavn=" + fNavn + ", eNavn=" + eNavn + ", alder=" + alder + "]";
+		return fNavn + " " + eNavn + " " + alder + " År";
 	}
-	
-		
 	
 }
