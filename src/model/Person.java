@@ -1,8 +1,12 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Person {
+public class Person implements Serializable{
+	
+
+	private static final long serialVersionUID = 2844634059313740890L;
 	private String fNavn;
 	private String eNavn;
 	private int alder;
@@ -33,7 +37,7 @@ public class Person {
 		this.fNavn = fNavn;
 		this.eNavn = eNavn;
 		this.alder = alder;
-		this.persons.add(this);
+		Person.getPersons().add(this);
 	}
 	@Override
 	public String toString() {

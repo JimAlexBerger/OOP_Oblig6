@@ -2,19 +2,18 @@ package main;
 
 import java.awt.EventQueue;
 
+import csv.CSV;
 import model.Person;
+import serialiserbare.Serial;
 import view.Gui;
 
 public class main {
 
 	public static void main(String[] args) {
-		new Person("Per", "Gunnar", 40);
-		new Person("Anette", "Henriksen", 24);
-		new Person("Henrik", "Sivertsen", 16);
-		new Person("Kjetil", "Pederstad", 74);
+		//new CSV("C:\\Users\\Jim-Alexander\\workspace\\Oblig6\\save.txt").loadPeople();
+		new Serial("C:\\Users\\Jim-Alexander\\workspace\\Oblig6\\save.txt").loadPeople();
 
-		
-		
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
