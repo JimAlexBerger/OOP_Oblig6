@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import csv.CSV;
+import database.DbPerson;
 import model.Person;
 import serialiserbare.Serial;
 
@@ -88,7 +89,8 @@ public class Gui extends JFrame {
 		create.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					new Person(fNavn.getText(), eNavn.getText(), Integer.parseInt(alder.getText()));
+					Person p = new Person(fNavn.getText(), eNavn.getText(), Integer.parseInt(alder.getText()));
+					new DbPerson().savePerson(p);
 					fNavn.setText("");
 					eNavn.setText("");
 					alder.setText("");
@@ -187,6 +189,7 @@ public class Gui extends JFrame {
 		delete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
+					new DbPerson().removePerson(list.getSelectedValue());
 					Person.getPersons().remove(list.getSelectedValue());
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
@@ -217,6 +220,7 @@ public class Gui extends JFrame {
 	private void save() {
 		//new CSV("C:\\Users\\Jim-Alexander\\workspace\\Oblig6\\save.txt").savePeople();
 		new Serial("C:\\Users\\Jim-Alexander\\workspace\\Oblig6\\save.txt").savePeople();
+		//new DbPerson().savePeople();
 
 	}
 
